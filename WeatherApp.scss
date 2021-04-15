@@ -1,0 +1,97 @@
+html{
+    font-size: 62.5%;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    
+}
+
+
+@mixin position($top, $size, $color, $family) {
+    position: absolute;
+    left: 50%;
+    top: $top;
+    transform: translate(-50%, -50%);
+    font-size:$size;
+    color: $color;
+    font-family: $family;
+}
+
+.main{
+     display: grid;
+     place-items: center;
+     background: linear-gradient( 90deg, #AED6F1 60% , white);
+       height: 350px;
+      position: relative;
+     top: 80px;
+     margin-right: 525px;
+     margin-left: 525px;
+     font-size: 5rem;
+     box-shadow: 0px 0px 8px 0px grey;
+     transition: 0.5s ease;
+
+     &:hover{
+         box-shadow: 0px 0px 5px 0px grey;
+     }
+
+     .search{
+       @include position(4%, 5rem, white, Monospace);
+        }
+    .input_main{
+        border-radius: 20px;
+        font-size: 1.8rem;
+        border: none;
+        outline: none;
+        padding: 5px;
+        margin-left: 3px;
+        font-family: sans-serif;
+        font-weight: 100;
+        text-align: center;
+    }
+}
+.location{
+  h1{
+    @include position(30%, 4.5rem, white, sans-serif);
+    text-transform: capitalize;
+    text-shadow: slategray 5px 5px;
+      }
+  h2{
+  @include position(40%, 4rem, white, Monospace);
+  text-shadow: slategray 2px 2px;
+  }
+  .max_min{
+     @include position(55%, 1.5rem ,white, Monospace);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: row;
+     padding: 5px;
+     
+     }
+}
+p{
+    @include position(20%, 1rem, black, sans-serif)
+}
+@media(max-width: 660px){
+    .main{
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    p{
+        @include position(25%, 1rem, black, sans-serif)
+    }
+    .location{
+        h1{
+            @include position(42%, 5.2rem, white, Monospace);
+        }
+        h2{
+            @include position(55%, 4rem, white, Monospace);
+        }
+        .max_min{
+            @include position(70%, 1.5rem, white, Monospace);
+        }
+    }
+    
+}
